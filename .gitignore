@@ -1,0 +1,10 @@
+# Ignore all files and folders in root
+/*
+
+# Keep .gitignore tracked
+!.gitignore
+
+# Allow only backend and Client directories
+!/backend/
+!/Client/
+!/client/

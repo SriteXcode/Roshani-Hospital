@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Tailwind CSS Custom Theme Token Registration
+   Extracted from WhatsApp Reference Image (assets/WhatsApp Image 2026-09-24 at 6.19.10 PM.jpeg)
+   ========================================================================== */
+
+@theme {
+  --color-navy: #2e3164;
+  --color-navy-dark: #192145;
+  --color-navy-light: #383d73;
+
+  --color-teal: #3bb599;
+  --color-teal-light: #4bc19e;
+  --color-teal-dark: #2a8c76;
+  --color-teal-soft: #eef9f3;
+
+  --color-mint-bg: #edf8f3;
+  --color-mint-subtle: #e4f5f0;
+}
+
+/* Global CSS Custom Variables (:root) */
+:root {
+  /* Brand Color Tokens */
+  --navy: #2e3164;
+  --navy-dark: #192145;
+  --navy-light: #383d73;
+
+  --teal: #b53b9f;
+  --teal-light: #4bc19e;
+  --teal-dark: #8c7d2a;
+  --teal-soft: #eef9f3;
+
+  --mint-bg: #edf8f3;
+  --mint-subtle: #e4f5f0;
+
+  /* Component & UI Theme Variables */
+  --accent: #b1b53b;
+  --accent-bg: #eef9f3;
+  --accent-border: #4bc19e;
+  --border: #e2e8f0;
+  --text-h: #192145;
+  --social-bg: #f1f5f9;
+  --shadow: 0 10px 25px rgba(59, 181, 153, 0.2);
+}
+
+
+/* Custom Base Rules */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-mint-bg);
+  color: #5a627d;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Component Button Helper Classes */
+.btn-teal {
+  background: linear-gradient(135deg, #4bc19e 0%, #30b18f 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(59, 181, 153, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-teal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 181, 153, 0.45);
+}
+
+.btn-navy-outline {
+  background: transparent;
+  color: #2e3164;
+  border: 2px solid #2e3164;
+  transition: all 0.25s ease;
+}
+
+.btn-navy-outline:hover {
+  background-color: #2e3164;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
