@@ -52,25 +52,25 @@ const Navbar = ({ onOpenBooking, onGoHome, user, onOpenAuth, onOpenProfile }) =>
       {/* Top Thin Utility Strip */}
       <div className="bg-navy-dark text-slate-200 py-1.5 px-3 sm:px-6 lg:px-8 border-b border-navy-light/30 text-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-          {/* Left Info: 24/7 Hospital Helpline & Address */}
-          <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+          {/* Left Info: 24/7 Hospital Helpline & Address (visible on all devices) */}
+          <div className="flex items-center gap-2 sm:gap-6 min-w-0">
             <a
               href="tel:1234567890"
-              className="flex items-center gap-1.5 text-teal-light font-semibold hover:underline truncate"
+              className="flex items-center gap-1 sm:gap-1.5 text-teal-light font-semibold hover:underline shrink-0 text-[11px] sm:text-xs"
             >
-              <PhoneCall size={13} className="text-teal-light shrink-0" />
-              <span className="hidden xs:inline">{t('nav.helpline')}</span>
+              <PhoneCall size={12} className="text-teal-light shrink-0" />
+              <span className="hidden sm:inline">{t('nav.helpline')}</span>
               <span>+91 1234567890</span>
             </a>
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=RoshniHospitality+Hospital+108+Healthcare+Blvd"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-1.5 text-slate-300 hover:text-teal-light transition-colors group cursor-pointer"
+              className="flex items-center gap-1 sm:gap-1.5 text-slate-300 hover:text-teal-light transition-colors group cursor-pointer min-w-0 text-[11px] sm:text-xs"
               title="Get Google Maps Directions / दिशा-निर्देश प्राप्त करें"
             >
               <MapPin size={13} className="text-teal group-hover:scale-110 transition-transform shrink-0" />
-              <span className="truncate max-w-xs">{t('footer.address')}</span>
+              <span className="truncate max-w-[85px] xs:max-w-[130px] sm:max-w-xs">{t('footer.address')}</span>
             </a>
           </div>
 
