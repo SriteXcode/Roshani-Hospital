@@ -95,16 +95,27 @@ const Navbar = ({ onOpenBooking, onGoHome, user, onOpenAuth, onOpenProfile }) =>
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="bg-white/95 backdrop-blur-md border-b border-teal-100 py-2.5 sm:py-3">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
+      <div className="bg-white/95 backdrop-blur-md border-b border-teal-100 py-2 sm:py-2.5">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-0">
           {/* Brand Logo */}
           <a
             href="#home"
             onClick={handleHomeClick}
-            className="flex items-center gap-2 sm:gap-3 text-lg sm:text-2xl font-extrabold text-navy hover:opacity-90 transition-opacity shrink-0"
+            className="flex items-center gap-0 hover:opacity-90 transition-opacity shrink-0"
           >
-            <img src={logoImg} alt="RoshniHospitality Logo" className="w-12 h-12 object-contain drop-shadow-sm" />
-            <span className="tracking-tight">{t('nav.brand')}</span>
+            <img
+              src={logoImg}
+              alt="Roshni Logo"
+              className="w-14 h-14 sm:w-18 sm:h-18 object-contain drop-shadow-sm"
+            />
+            <div className="flex flex-col justify-center">
+              <span className="text-lg sm:text-2xl font-extrabold tracking-tight text-navy leading-none">
+                {t('nav.brand')}
+              </span>
+              <span className="text-[9px] sm:text-[11px] font-semibold text-teal tracking-wider uppercase mt-0.5 sm:mt-1 leading-none">
+                {t('nav.tagline')}
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation Links */}

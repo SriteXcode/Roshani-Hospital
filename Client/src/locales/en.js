@@ -1,6 +1,7 @@
 export const en = {
   nav: {
-    brand: "RoshniHospitality",
+    brand: "Roshni",
+    tagline: "Multispeciality Hospital",
     home: "Home",
     departments: "Departments",
     doctors: "Top Doctors",
@@ -131,6 +132,7 @@ export const en = {
     submittingBtn: "Submitting Request...",
   },
   footer: {
+    brandName: "RoshniHospitality",
     brandDesc: "Premier multi-specialty hospital providing compassionate healthcare, advanced surgical care, and 24/7 emergency medicine.",
     quickLinks: "Quick Links",
     specialties: "Specialties",

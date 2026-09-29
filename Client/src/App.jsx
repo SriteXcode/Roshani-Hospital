@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import BookingModal from './components/BookingModal';
 import AuthModal from './components/AuthModal';
@@ -174,13 +174,19 @@ function App() {
           {/* 2. Hero Section (Flexible Height) */}
           <section className="py-4 sm:py-6 lg:py-8 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex items-center lg:min-h-[55vh]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-stretch w-full">
-              {/* Left Hero Box */}
+              {/* Left Hero Box (with Hero Image as Background on small devices) */}
               <div className="bg-gradient-to-br from-white via-white to-teal-soft/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-between shadow-sm border border-teal-100/80 relative overflow-hidden">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-soft text-teal-dark font-semibold text-xs mb-3 border border-teal-100">
-                    <ShieldAlert size={13} className="text-teal" />
-                    <span>Leading Multi-Specialty Hospital</span>
-                  </div>
+                {/* Background Hero Image on Small Devices (< lg) */}
+                <div className="absolute inset-0 lg:hidden pointer-events-none z-0 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+                    alt="Healthcare Hero"
+                    className="w-full h-full object-cover object-[center_20%] opacity-20 sm:opacity-25"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-teal-soft/60 backdrop-blur-[1px]" />
+                </div>
+
+                <div className="relative z-10">
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight leading-snug mb-3 sm:mb-4">
                     {t('hero.title')}
                   </h1>
@@ -190,28 +196,46 @@ function App() {
                   </p>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-auto">
+                {/* Action Buttons: placed in a row */}
+                <div className="relative z-10 flex flex-row items-center gap-2 sm:gap-3 mt-auto w-full">
                   <button
                     onClick={() => handleOpenBooking()}
-                    className="btn-teal px-6 py-3 rounded-xl font-bold text-xs sm:text-sm cursor-pointer shadow-md flex items-center justify-center gap-2"
+                    className="btn-teal flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm cursor-pointer shadow-md flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap"
                   >
-                    <Calendar size={16} />
+                    <Calendar size={15} className="shrink-0" />
                     <span>{t('hero.bookBtn')}</span>
                   </button>
 
                   <button
                     onClick={() => setCurrentView('all-doctors')}
-                    className="btn-navy-outline px-6 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer bg-white sm:bg-transparent"
+                    className="btn-navy-outline flex-1 sm:flex-initial px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer bg-white/90 backdrop-blur-xs sm:bg-transparent whitespace-nowrap"
                   >
-                    <Search size={16} />
+                    <Search size={15} className="shrink-0" />
                     <span>{t('hero.findDoctorBtn')}</span>
                   </button>
                 </div>
+
+                {/* Trust Badges on Small Devices */}
+                <div className="relative z-10 flex lg:hidden items-center flex-wrap gap-2 pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-teal-100/70">
+                  <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-xs px-2.5 py-1.5 rounded-xl shadow-xs border border-teal-100 text-[10px] sm:text-[11px]">
+                    <Star size={13} className="text-amber-500 fill-amber-500 shrink-0" />
+                    <div>
+                      <strong className="font-bold text-navy mr-1">{t('hero.rating')}</strong>
+                      <span className="text-slate-500">({t('hero.patients')})</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-xs px-2.5 py-1.5 rounded-xl shadow-xs border border-teal-100 text-[10px] sm:text-[11px]">
+                    <UserCheck size={13} className="text-teal shrink-0" />
+                    <div>
+                      <strong className="font-bold text-navy mr-1">{t('hero.specialists')}</strong>
+                      <span className="text-slate-500">({t('hero.available24h')})</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Right Hero Visual Box */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex items-center justify-center relative overflow-hidden shadow-sm border border-teal-100 min-h-[260px] sm:min-h-[300px] lg:min-h-full">
+              {/* Right Hero Visual Box (Hidden on small devices since hero img is background of text div) */}
+              <div className="hidden lg:flex bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 items-center justify-center relative overflow-hidden shadow-sm border border-teal-100 min-h-[260px] sm:min-h-[300px] lg:min-h-full">
                 <div className="relative w-full h-full min-h-[240px] sm:min-h-[280px] rounded-xl sm:rounded-2xl overflow-hidden border border-teal-100 bg-gradient-to-tr from-teal/20 via-mint-bg to-white flex items-center justify-center">
                   <img
                     src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"

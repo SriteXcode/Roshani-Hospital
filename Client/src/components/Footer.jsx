@@ -12,9 +12,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-8 sm:mb-12">
           {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-extrabold text-white mb-3 sm:mb-4">
-              <img src={logoImg} alt="RoshniHospitality Logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain brightness-125" />
-              <span>{t('nav.brand')}</span>
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+              <img src={logoImg} alt="Roshni Logo" className="w-10 h-10 sm:w-12 sm:h-12 object-contain brightness-125" />
+              <div className="flex flex-col justify-center">
+                <span className="text-xl sm:text-2xl font-extrabold text-white leading-none">
+                  {t('nav.brand')}
+                </span>
+                <span className="text-[10px] sm:text-xs font-semibold text-teal-light tracking-wider uppercase mt-1 leading-none">
+                  {t('nav.tagline')}
+                </span>
+              </div>
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               {t('footer.brandDesc')}
